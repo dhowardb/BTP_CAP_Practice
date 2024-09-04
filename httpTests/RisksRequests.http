@@ -1,0 +1,4 @@
+
+GET https://port4004-workspaces-ws-fwq7p.us10.trial.applicationstudio.cloud.sap/localhost:4004/odata/v4/service/Risks
+Content-Type: : application/json
+Authorization: 
