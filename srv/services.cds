@@ -8,14 +8,16 @@ service RiskService {
             Owner,
             Description,
             MitiUuid,
-            Impact
+            Impact,
+            _Mitigation 
         };
 
     entity Mitigations as
         select from ZUI_RISKS_MITI_CLOUD_O4.Mitigations {
             Uuid,
             Description,
-            Owner
+            Owner,
+            _Risks
         };
 
 
