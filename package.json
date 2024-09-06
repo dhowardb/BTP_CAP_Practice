@@ -15,5 +15,17 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "zui_rap_capability_test_anno": {
+        "kind": "odata",
+        "model": "srv/external/zui_rap_capability_test_anno",
+        "credentials": {
+          "destination": "A4H_OnPremise",
+          "path": "/sap/opu/odata4/sap/zui_rap_capability_test_anno/srvd/sap/zui_rap_capability_test_anno/0001"
+        }
+      }
+    }
   }
 }
