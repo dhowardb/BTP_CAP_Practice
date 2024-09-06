@@ -1,0 +1,539 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.1.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "zui_rap_capability_test_anno": {
+   "kind": "service",
+   "@cds.external": true,
+   "@CodeList.CurrencyCodes": {
+    "Url": "../../../../default/iwbep/common/0001/$metadata",
+    "CollectionPath": "Currencies"
+   },
+   "@CodeList.UnitsOfMeasure": {
+    "Url": "../../../../default/iwbep/common/0001/$metadata",
+    "CollectionPath": "UnitsOfMeasure"
+   },
+   "@Aggregation.ApplySupported": {
+    "Transformations": [
+     "aggregate",
+     "groupby",
+     "filter"
+    ],
+    "Rollup": {
+     "#": "None"
+    }
+   },
+   "@Common.ApplyMultiUnitBehaviorForSortingAndFiltering": true,
+   "@Capabilities.FilterFunctions": [
+    "eq",
+    "ne",
+    "gt",
+    "ge",
+    "lt",
+    "le",
+    "and",
+    "or",
+    "contains",
+    "startswith",
+    "endswith",
+    "any",
+    "all"
+   ],
+   "@Capabilities.SupportedFormats": [
+    "application/json",
+    "application/pdf"
+   ],
+   "@PDF.Features": {
+    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+    "DocumentDescriptionCollection": "MyDocumentDescriptions",
+    "ArchiveFormat": true,
+    "Border": true,
+    "CoverPage": true,
+    "FitToPage": true,
+    "FontName": true,
+    "FontSize": true,
+    "Margin": true,
+    "Signature": true,
+    "ResultSizeDefault": 20000,
+    "ResultSizeMaximum": 20000
+   }
+  },
+  "zui_rap_capability_test_anno.Child": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "Id": {
+     "key": true,
+     "type": "cds.UUID",
+     "notNull": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 Byte UUID in 16 Bytes (Raw Format)"
+    },
+    "ParentId": {
+     "type": "cds.UUID",
+     "notNull": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 Byte UUID in 16 Bytes (Raw Format)"
+    },
+    "StringProperty": {
+     "type": "cds.String",
+     "length": 1024,
+     "notNull": true
+    },
+    "FieldWithPercent": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 2,
+     "notNull": true
+    },
+    "BooleanProperty": {
+     "type": "cds.Boolean",
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Truth Value",
+     "@Common.QuickInfo": "Truth Value: True/False"
+    },
+    "CriticalityCode": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "notNull": true,
+     "@Common.Label": "INT1",
+     "@Common.QuickInfo": "1 Byte Unsigned Integer"
+    },
+    "StreamFilename": {
+     "type": "cds.String",
+     "length": 128,
+     "notNull": true
+    },
+    "StreamMimetype": {
+     "type": "cds.String",
+     "length": 128,
+     "notNull": true
+    },
+    "StreamFile": {
+     "type": "cds.LargeBinary",
+     "notNull": true
+    },
+    "_Root": {
+     "type": "cds.Association",
+     "target": "zui_rap_capability_test_anno.Root",
+     "cardinality": {
+      "max": 1
+     },
+     "keys": []
+    }
+   },
+   "@Common.Label": "Test capability RAP",
+   "@UI.LineItem": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Value": {
+      "=": "StringProperty"
+     }
+    }
+   ],
+   "@Capabilities.NavigationRestrictions.RestrictedProperties": [
+    {
+     "NavigationProperty": {
+      "=": "_Root"
+     },
+     "InsertRestrictions": {
+      "Insertable": false
+     }
+    }
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true,
+   "@Capabilities.FilterRestrictions.FilterExpressionRestrictions": [
+    {
+     "Property": {
+      "=": "BooleanProperty"
+     },
+     "AllowedExpressions": "MultiValue"
+    }
+   ]
+  },
+  "zui_rap_capability_test_anno.Root": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.UUID",
+     "notNull": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 Byte UUID in 16 Bytes (Raw Format)"
+    },
+    "StringProperty": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true,
+     "@Common.SemanticObject": "FeatureShowcaseNavigation"
+    },
+    "ImageUrl": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true
+    },
+    "IntegerValue": {
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ForecastValue": {
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "TargetValue": {
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "Dimensions": {
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ProgressIntegerValue": {
+     "type": "cds.Integer",
+     "notNull": true,
+     "@Common.Label": "Progress Indicator"
+    },
+    "StarsValue": {
+     "type": "cds.Double",
+     "notNull": true,
+     "@Common.Label": "Rating Indicator"
+    },
+    "ContactID": {
+     "type": "cds.UUID",
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 Byte UUID in 16 Bytes (Raw Format)"
+    },
+    "CriticalityCode": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "notNull": true,
+     "@Common.Label": "INT1",
+     "@Common.QuickInfo": "1 Byte Unsigned Integer"
+    },
+    "Uom": {
+     "type": "cds.String",
+     "length": 3,
+     "notNull": true,
+     "@Common.IsUnit": true,
+     "@Common.ValueListReferences": [
+      "../../../../srvd_f4/sap/i_unitofmeasurestdvh/0001;ps='srvd-zui_rap_capability_test_anno-0001';va='com.sap.gateway.srvd.zui_rap_capability_test_anno.v0001.et-zi_rap_capability_test_anno.uom'/$metadata"
+     ],
+     "@Common.Label": "Internal UoM",
+     "@Common.Heading": "MU",
+     "@Common.QuickInfo": "Unit of Measurement"
+    },
+    "FieldWithQuantity": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "notNull": true,
+     "@Measures.Unit": {
+      "=": "Uom"
+     }
+    },
+    "IsoCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "notNull": true,
+     "@Common.IsCurrency": true,
+     "@Common.ValueListReferences": [
+      "../../../../srvd_f4/sap/i_currencystdvh/0001;ps='srvd-zui_rap_capability_test_anno-0001';va='com.sap.gateway.srvd.zui_rap_capability_test_anno.v0001.et-zi_rap_capability_test_anno.isocurrency'/$metadata"
+     ]
+    },
+    "Country": {
+     "type": "cds.String",
+     "length": 3,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Country/Region Key",
+     "@Common.Heading": "C/R"
+    },
+    "Region": {
+     "type": "cds.String",
+     "length": 3,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.ValueListReferences": [
+      "../../../../srvd_f4/sap/i_regionvh/0001;ps='srvd-zui_rap_capability_test_anno-0001';va='com.sap.gateway.srvd.zui_rap_capability_test_anno.v0001.et-zi_rap_capability_test_anno.region'/$metadata"
+     ],
+     "@Common.Label": "Region",
+     "@Common.Heading": "Rg",
+     "@Common.QuickInfo": "Region (State, Province, County)"
+    },
+    "NavigationID": {
+     "type": "cds.UUID",
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 Byte UUID in 16 Bytes (Raw Format)"
+    },
+    "FieldWithCriticality": {
+     "type": "cds.String",
+     "length": 42,
+     "notNull": true
+    },
+    "FieldWithPrice": {
+     "type": "cds.Decimal",
+     "precision": 16,
+     "notNull": true,
+     "@Measures.ISOCurrency": {
+      "=": "IsoCurrency"
+     }
+    },
+    "HarveyFieldWithPrice": {
+     "type": "cds.Decimal",
+     "precision": 16,
+     "notNull": true,
+     "@Measures.ISOCurrency": {
+      "=": "IsoCurrency"
+     }
+    },
+    "DeleteHidden": {
+     "type": "cds.Boolean",
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Truth Value",
+     "@Common.QuickInfo": "Truth Value: True/False"
+    },
+    "UpdateHidden": {
+     "type": "cds.Boolean",
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Truth Value",
+     "@Common.QuickInfo": "Truth Value: True/False"
+    },
+    "FieldWithUrl": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true
+    },
+    "FieldWithUrlText": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true
+    },
+    "Email": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true
+    },
+    "Telephone": {
+     "type": "cds.String",
+     "length": 256,
+     "notNull": true
+    },
+    "ValidFrom": {
+     "type": "cds.Date"
+    },
+    "ValidTo": {
+     "type": "cds.Date"
+    },
+    "Time": {
+     "type": "cds.Time",
+     "notNull": true
+    },
+    "Timestamp": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@Common.Label": "Time Stamp",
+     "@Common.QuickInfo": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+    },
+    "Description": {
+     "type": "cds.String",
+     "length": 1024,
+     "notNull": true
+    },
+    "DescriptionCustomGrowing": {
+     "type": "cds.LargeString",
+     "notNull": true
+    },
+    "CreatedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Created By",
+     "@Common.QuickInfo": "Created By User"
+    },
+    "CreatedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@Common.Label": "Created On",
+     "@Common.QuickInfo": "Creation Date Time"
+    },
+    "LocalLastChangedBy": {
+     "type": "cds.String",
+     "length": 12,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Changed By",
+     "@Common.QuickInfo": "Local Instance Last Changed By User"
+    },
+    "LocalLastChangedAt": {
+     "type": "cds.String",
+     "length": 12,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Changed By",
+     "@Common.QuickInfo": "Local Instance Last Changed By User"
+    },
+    "LastChangedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@Common.Label": "Changed On",
+     "@Common.QuickInfo": "Last Change Date Time"
+    },
+    "_Child": {
+     "type": "cds.Composition",
+     "target": "zui_rap_capability_test_anno.Child",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": [],
+     "@Common.Composition": true
+    }
+   },
+   "@Common.Label": "Test capability RAP",
+   "@UI.Facets": [
+    {
+     "$Type": "SAP__UI.ReferenceFacet",
+     "Label": "Root",
+     "Target": {
+      "=": "@UI.Identification"
+     }
+    }
+   ],
+   "@UI.HeaderInfo": {
+    "TypeName": "Test capability RAP",
+    "Title": {
+     "$Type": "SAP__UI.DataField",
+     "Value": {
+      "=": "StringProperty"
+     }
+    },
+    "Description": {
+     "$Type": "SAP__UI.DataField",
+     "Value": {
+      "=": "ID"
+     }
+    }
+   },
+   "@UI.HeaderInfo.@Core.Messages": [
+    {
+     "message": "UI.HEADERINFO: TypeNamePlural is mandatory",
+     "severity": "error"
+    }
+   ],
+   "@UI.Identification": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Root ID",
+     "Value": {
+      "=": "ID"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Root ID",
+     "Value": {
+      "=": "StringProperty"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Root ID",
+     "Value": {
+      "=": "_Child/StringProperty"
+     }
+    }
+   ],
+   "@UI.LineItem": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Root ID",
+     "Value": {
+      "=": "ID"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataFieldWithIntentBasedNavigation",
+     "Label": "Semantic Key",
+     "SemanticObject": "FeatureShowcaseNavigation",
+     "Action": "manage",
+     "Value": {
+      "=": "StringProperty"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Value",
+     "Value": {
+      "=": "IntegerValue"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Unit of Measure",
+     "Value": {
+      "=": "Uom"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Field Quantity",
+     "Value": {
+      "=": "FieldWithQuantity"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Child",
+     "Value": {
+      "=": "_Child/StringProperty"
+     },
+     "@UI.Importance": {
+      "#": "High"
+     }
+    }
+   ],
+   "@Capabilities.NavigationRestrictions.RestrictedProperties": [
+    {
+     "NavigationProperty": {
+      "=": "_Child"
+     },
+     "InsertRestrictions": {
+      "Insertable": false
+     }
+    }
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.FilterRestrictions.Filterable": true,
+   "@Capabilities.FilterRestrictions.FilterExpressionRestrictions": [
+    {
+     "Property": {
+      "=": "DescriptionCustomGrowing"
+     },
+     "AllowedExpressions": "SearchExpression"
+    }
+   ],
+   "@Capabilities.SortRestrictions.NonSortableProperties": [
+    "DescriptionCustomGrowing"
+   ],
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  }
+ }
+}
