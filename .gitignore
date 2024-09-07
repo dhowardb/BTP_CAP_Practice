@@ -4,7 +4,7 @@ _out
 *.sqlite
 connection.properties
 default-*.json
-.cdsrc-private.json
+# .cdsrc-private.json
 gen/
 node_modules/
 target/
@@ -34,4 +34,4 @@ mta_archives/
 @cds-models
 
 #env
-.env
+# .env
