@@ -1,0 +1,59 @@
+<mvc:View
+    xmlns:table="sap.fe.macros.table"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:macros="sap.fe.macros"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    controllerName="fpmrootchild.ext.main.Main"
+>
+    <Page
+        id="Main"
+        title="{i18n>MainTitle}"
+    >
+        <Panel
+            id="_IDGenPanel"
+            headerText="Table in Display Mode"
+        >
+            <macros:FilterBar
+                metaPath="/Root/@com.sap.vocabularies.UI.v1.SelectionFields"
+                id="FilterBar"
+            />
+            <macros:Table
+                metaPath="/Root/@com.sap.vocabularies.UI.v1.LineItem"
+                readOnly="true"
+                id="LineItemTable"
+                filterBar="FilterBar"
+            >
+                <macros:columns>
+                    <table:Column id="_IDGenColumn1"
+                        header="Custom Button"
+                        key="CustomButtonKey"
+                    >
+                        <Button id="_IDGenButton" text="Press" press="onSampleButton" />
+                    </table:Column>
+                    <table:Column id="_IDGenColumn2"
+                        header="Show Table"
+                        key="ShowTableKey"
+                    >
+                        <Button id="_IDGenButton1" text="Show Table" press="onShowTable" />
+                    </table:Column>
+                    <table:Column id="_IDGenColumn3"
+                        header="Custom Text"
+                        key="CustomTextKey"
+                    >
+                        <Text id="_IDGenText" text="{Country}" />
+                    </table:Column>
+                    <table:Column id="_IDGenColumn4"
+                        header="List Text"
+                        key="CustomListKey"
+                    >
+                        <List id="_IDGenList" items='{_Child}'>
+                            <ActionListItem id="_IDGenActionListItem" text="{FieldWithPercent}" press="onActionList" />
+                        </List>
+                    </table:Column>
+                </macros:columns>
+            </macros:Table>
+        </Panel>
+    </Page>
+</mvc:View>
