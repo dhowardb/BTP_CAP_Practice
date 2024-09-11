@@ -26,30 +26,58 @@
                 filterBar="FilterBar"
             >
                 <macros:columns>
-                    <table:Column id="_IDGenColumn1"
+                    <table:Column
+                        id="_IDGenColumn1"
                         header="Custom Button"
                         key="CustomButtonKey"
                     >
-                        <Button id="_IDGenButton" text="Press" press="onSampleButton" />
+                        <Button
+                            id="_IDGenButton"
+                            text="Press"
+                            press="onSampleButton"
+                        />
                     </table:Column>
-                    <table:Column id="_IDGenColumn2"
+                    <table:Column
+                        id="_IDGenColumn2"
                         header="Show Table"
                         key="ShowTableKey"
                     >
-                        <Button id="_IDGenButton1" text="Show Table" press="onShowTable" />
+                        <Button
+                            id="_IDGenButton1"
+                            text="Show Table"
+                            press="onShowTable"
+                        />
                     </table:Column>
-                    <table:Column id="_IDGenColumn3"
-                        header="Custom Text"
-                        key="CustomTextKey"
-                    >
-                        <Text id="_IDGenText" text="{Country}" />
-                    </table:Column>
-                    <table:Column id="_IDGenColumn4"
+                    <table:Column
+                        id="_IDGenColumn4"
                         header="List Text"
                         key="CustomListKey"
                     >
-                        <List id="_IDGenList" items='{_Child}'>
-                            <ActionListItem id="_IDGenActionListItem" text="{FieldWithPercent}" press="onActionList" />
+                        <List
+                            id="_IDGenList"
+                            items='{_Child}'
+                        >
+                            <ActionListItem
+                                id="_IDGenActionListItem"
+                                text="{FieldWithPercent}"
+                                press="onActionList"
+                            />
+                        </List>
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn3"
+                        header="Child Text"
+                        key="CustomChildKey"
+                    >
+                        <List
+                            id="_IDGenList1"
+                            items='{_Child}'
+                        >
+                            <ActionListItem
+                                id="_IDGenActionListItem1"
+                                text="{StringProperty}"
+                                press="onActionList"
+                            />
                         </List>
                     </table:Column>
                 </macros:columns>

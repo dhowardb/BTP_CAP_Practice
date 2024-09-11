@@ -1,0 +1,119 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:macros="sap.fe.macros"
+>
+    <!-- <TableSelectDialog
+        id="myDialog2"
+        noDataText="No Data Found"
+        title="Child Table"
+        cancel=".handleClose"
+        items='{Root/_Child}'
+    >
+        <ColumnListItem id="_IDGenColumnListItem111" vAlign="Middle">
+            <cells>
+                <Text id="_IDGenText11141" text="{ParentId}" />
+                <Text id="_IDGenText112" text="{FieldWithPercent}" />
+                <Text id="_IDGenText23" text="{StringProperty}" />
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column id="_IDGenColumn23" width="12em">
+                <header>
+                    <Text id="_IDGenText333" text="Column 1" />
+                </header>
+            </Column>
+            <Column id="_IDGenColumn511"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <header>
+                    <Text id="_IDGenText451" text="Column 2" />
+                </header>
+            </Column>
+            <Column id="_IDGenColumn651"
+                minScreenWidth="Desktop"
+                demandPopin="true"
+            >
+                <header>
+                    <Text id="_IDGenText551" text="Column 3" />
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog> -->
+    <Dialog id="_IDGenDialog">
+        <content>
+            <macros:Table
+                metaPath="/Child/@com.sap.vocabularies.UI.v1.LineItem"
+                readOnly="true"
+                id="metaLineItemTablePopUp"
+            >
+                <macros:columns>
+                    <table:Column
+                        id="_IDGenColumn8"
+                        header="Custom Button"
+                        key="CustomButtonKey"
+                    >
+                        <Button
+                            id="_IDGenButton2"
+                            text="Press"
+                            press="onSampleButton"
+                        />
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn9"
+                        header="Show Table"
+                        key="ShowTableKey"
+                    >
+                        <Button
+                            id="_IDGenButton3"
+                            text="Show Table"
+                            press="onShowTable"
+                        />
+                    </table:Column>
+                    <table:Column
+                        id="_IDGenColumn10"
+                        header="List Text"
+                        key="CustomListKey"
+                    />
+                </macros:columns>
+            </macros:Table>
+        </content>
+    </Dialog>
+    <!-- <macros:Table
+        metaPath="/Child/@com.sap.vocabularies.UI.v1.LineItem"
+        readOnly="true"
+        id="metaLineItemTablePopUp"
+    >
+        <macros:columns>
+            <table:Column
+                id="_IDGenColumn8"
+                header="Custom Button"
+                key="CustomButtonKey"
+            >
+                <Button
+                    id="_IDGenButton2"
+                    text="Press"
+                    press="onSampleButton"
+                />
+            </table:Column>
+            <table:Column
+                id="_IDGenColumn9"
+                header="Show Table"
+                key="ShowTableKey"
+            >
+                <Button
+                    id="_IDGenButton3"
+                    text="Show Table"
+                    press="onShowTable"
+                />
+            </table:Column>
+            <table:Column
+                id="_IDGenColumn10"
+                header="List Text"
+                key="CustomListKey"
+            >
+            </table:Column>
+        </macros:columns>
+    </macros:Table> -->
+</core:FragmentDefinition>
