@@ -6,8 +6,9 @@
         id="myDialog"
         noDataText="No Data Found"
         title="Child Table"
-        cancel=".handleClose"
-        confirm=".handleItemPress"
+        cancel="handleClose"
+        confirm="handleItemPress"
+        search="handleSearch"
         items='{_Child}'
         
     >
@@ -16,9 +17,6 @@
                 <Text id="_IDGenText" text="{ParentId}" />
                 <Text id="_IDGenText1" text="{FieldWithPercent}" />
                 <Text id="_IDGenText2" text="{StringProperty}" />
-                <!-- <Text id="_IDGenText" text="{ID}" />
-                <Text id="_IDGenText1" text="{IntegerValue}" />
-                <Text id="_IDGenText2" text="{StringProperty}" /> -->
             </cells>
         </ColumnListItem>
         <columns>

@@ -1,0 +1,22 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    controllerName="sap.fe.core.fpmExplorer.tableDefault.TableDefault"
+>
+    <Page
+        id="_IDGenPage1"
+        enableScrolling="true"
+    >
+        <Panel
+            id="_IDGenPanel"
+            headerText="Table in Display Mode"
+        >
+            <macros:Table
+                metaPath="/RootEntity/@com.sap.vocabularies.UI.v1.LineItem"
+                readOnly="true"
+                id="LineItemTable"
+            />
+        </Panel>
+    </Page>
+</mvc:View>
