@@ -1,0 +1,1 @@
+using RootService as service from '../../srv/service';

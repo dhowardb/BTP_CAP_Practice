@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <TableSelectDialog
+        noDataText="No Data Found"
+        title="Child Table"
+        cancel="handleClose"
+        confirm="handleItemPress"
+        search="handleSearch"
+        items='{_Child}'
+    >
+        <ColumnListItem
+            vAlign="Middle"
+        >
+            <cells>
+                <Text text="{ParentId}" />
+                <Text text="{FieldWithPercent}" />
+                <Text text="{StringProperty}" />
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column
+                width="12em"
+            >
+                <header>
+                    <Text text="Parent ID" />
+                </header>
+            </Column>
+            <Column
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <header>
+                    <Text text="Value" />
+                </header>
+            </Column>
+            <Column
+                minScreenWidth="Desktop"
+                demandPopin="true"
+            >
+                <header>
+                    <Text text="String Sample" />
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog>
+</core:FragmentDefinition>
