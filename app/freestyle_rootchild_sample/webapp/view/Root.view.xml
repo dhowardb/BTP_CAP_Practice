@@ -1,17 +1,53 @@
-<mvc:View xmlns:filterbar="sap.ui.comp.filterbar"
+<mvc:View xmlns:core="sap.ui.core" xmlns:filterbar="sap.ui.comp.filterbar" xmlns:smartvariants="sap.ui.comp.smartvariants" xmlns:f="sap.f"
     xmlns:smarttable="sap.ui.comp.smarttable"
     controllerName="freestylerootchildsample.controller.Root"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Page
-        id="page"
-        title="{i18n>title}"
-    >
-        <content>
-            <Table
-                id="customTable"
+    <f:DynamicPage id="_IDGenDynamicPage" >
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle" >
+                <f:heading>
+                    <smartvariants:SmartVariantManagement id="_IDGenSmartVariantManagement" showExecuteOnSelection="true"></smartvariants:SmartVariantManagement>
+                    
+                </f:heading>
+                <f:expandedContent>
+						<Label id="_IDGenLabel" text="No filters active" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="_IDGenLabel1" text="No filters active" />
+					</f:snappedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader" >
+                <f:content>
+                    <filterbar:FilterBar id="_IDGenFilterBar" persistencyKey="persistKey" useToolbar="false" search="onSearch" filterChange="onFilterChange" afterVariantLoad="onAfterVariantLoad">
+                        <filterbar:filterGroupItems>
+                            <filterbar:FilterGroupItem id="_IDGenFilterGroupItem" name="StringProperty" label="String Props" groupName="Group1" visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <MultiComboBox id="_IDGenMultiComboBox" name="StringProperty" selectionChange="onSelectionChange" items="{ path: '/Root' }">
+                                        <core:Item id="_IDGenItem" key="{Id}" text="{StringProperty}"></core:Item>
+                                    </MultiComboBox>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                        </filterbar:filterGroupItems>
+                        <filterbar:filterGroupItems>
+                            <filterbar:FilterGroupItem id="_IDGenFilterGroupItem1" name="Description" label="Description" groupName="Group1" visibleInFilterBar="true">
+                                <filterbar:control>
+                                    <MultiComboBox id="_IDGenMultiComboBox1" name="Description" selectionChange="onSelectionChange" items="{ path: '/Root' }">
+                                        <core:Item id="_IDGenItem1" key="{Id}" text="{Description}"></core:Item>
+                                    </MultiComboBox>
+                                </filterbar:control>
+                            </filterbar:FilterGroupItem>
+                        </filterbar:filterGroupItems>
+                    </filterbar:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table id="_IDGenTable"
                 items="{
           path: '/Root', 
           parameters: {
@@ -21,27 +57,27 @@
             >
                 <!-- Columns Definitions -->
                 <columns>
-                    <Column id="_IDGenColumn1">
+                    <Column id="_IDGenColumn">
                         <Text
                             id="_IDGenText"
                             text="String Property"
                         />
                     </Column>
-                    <Column id="_IDGenColumn2">
+                    <Column id="_IDGenColumn1">
                         <Text
                             id="_IDGenText1"
                             text="ID"
                         />
                     </Column>
-                    <Column id="_IDGenColumn3">
+                    <Column id="_IDGenColumn2">
                         <Text
                             id="_IDGenText2"
                             text="Description"
                         />
                     </Column>
-					<Column id="_IDGenColumn4">
+					<Column id="_IDGenColumn3">
                         <Text
-                            id="_IDGenText6"
+                            id="_IDGenText3"
                             text="Child String"
                         />
                     </Column>
@@ -49,10 +85,10 @@
 
                 <!-- Template for rows -->
                 <items>
-                    <ColumnListItem id="_IDGenColumnListItem">
+                    <ColumnListItem id="_IDGenColumnListItem1">
                         <cells>
                             <Button
-                                id="_IDGenButton1"
+                                id="_IDGenButton"
                                 text="{StringProperty}"
                             />
                             <Text
@@ -64,7 +100,7 @@
                                 text="{Description}"
                             />
 							<Button
-                                id="_IDGenButton2"
+                                id="_IDGenButton1"
                                 text="Show Child Table"
 								visible="{UpdateHidden}"
                                 press="onShowChildTable"
@@ -73,6 +109,7 @@
                     </ColumnListItem>
                 </items>
             </Table>
-        </content>
-    </Page>
+        </f:content>
+    </f:DynamicPage>
+    
 </mvc:View>
