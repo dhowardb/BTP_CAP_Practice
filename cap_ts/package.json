@@ -1,0 +1,40 @@
+{
+  "name": "cap_ts",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.22.1",
+    "@sap-cloud-sdk/resilience": "^3.22.1",
+    "@sap/cds": "^8",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@types/node": "^20",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds-ts w"
+  },
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  },
+  "cds": {
+    "requires": {
+      "ZUI_RISKS_MITI_CLOUD_O4": {
+        "kind": "odata",
+        "model": "srv/external/ZUI_RISKS_MITI_CLOUD_O4",
+        "credentials": {
+          "destination": "A4H_OnPremise",
+          "path": "/sap/opu/odata4/sap/zui_risks_miti_cloud_o4/srvd/sap/zui_risks_miti_cloud/0001"
+        }
+      }
+    }
+  }
+}

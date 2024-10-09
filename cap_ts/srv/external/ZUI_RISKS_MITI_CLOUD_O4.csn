@@ -1,0 +1,202 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.2.3"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "ZUI_RISKS_MITI_CLOUD_O4": {
+   "kind": "service",
+   "@cds.external": true,
+   "@Aggregation.ApplySupported": {
+    "Transformations": [
+     "aggregate",
+     "groupby",
+     "filter"
+    ],
+    "Rollup": {
+     "#": "None"
+    }
+   },
+   "@Common.ApplyMultiUnitBehaviorForSortingAndFiltering": true,
+   "@Capabilities.FilterFunctions": [
+    "eq",
+    "ne",
+    "gt",
+    "ge",
+    "lt",
+    "le",
+    "and",
+    "or",
+    "contains",
+    "startswith",
+    "endswith",
+    "any",
+    "all"
+   ],
+   "@Capabilities.SupportedFormats": [
+    "application/json",
+    "application/pdf"
+   ],
+   "@PDF.Features": {
+    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+    "DocumentDescriptionCollection": "MyDocumentDescriptions",
+    "ArchiveFormat": true,
+    "Border": true,
+    "CoverPage": true,
+    "FitToPage": true,
+    "FontName": true,
+    "FontSize": true,
+    "Margin": true,
+    "Signature": true,
+    "ResultSizeDefault": 20000,
+    "ResultSizeMaximum": 20000
+   }
+  },
+  "ZUI_RISKS_MITI_CLOUD_O4.Mitigations": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "Uuid": {
+     "key": true,
+     "type": "cds.String",
+     "length": 36,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 byte UUID in 36 chars according to RFC4122"
+    },
+    "Description": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "Owner": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "_Risks": {
+     "type": "cds.Association",
+     "target": "ZUI_RISKS_MITI_CLOUD_O4.Risks",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   },
+   "@Common.Label": "Mitigation Interface view",
+   "@Capabilities.NavigationRestrictions.RestrictedProperties": [
+    {
+     "NavigationProperty": {
+      "=": "_Risks"
+     },
+     "InsertRestrictions": {
+      "Insertable": false
+     }
+    }
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true,
+   "@Capabilities.FilterRestrictions.FilterExpressionRestrictions": [
+    {
+     "Property": {
+      "=": "Uuid"
+     },
+     "AllowedExpressions": "MultiValue"
+    }
+   ]
+  },
+  "ZUI_RISKS_MITI_CLOUD_O4.Risks": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "Uuid": {
+     "key": true,
+     "type": "cds.String",
+     "length": 36,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 byte UUID in 36 chars according to RFC4122"
+    },
+    "Title": {
+     "type": "cds.String",
+     "length": 100,
+     "notNull": true,
+     "@Common.Label": "Char 100"
+    },
+    "Owner": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "Description": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "MitiUuid": {
+     "type": "cds.String",
+     "length": 36,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 byte UUID in 36 chars according to RFC4122"
+    },
+    "Impact": {
+     "type": "cds.Integer",
+     "notNull": true,
+     "@Common.Label": "INT4",
+     "@Common.QuickInfo": "4 Byte Signed Integer"
+    },
+    "_Mitigation": {
+     "type": "cds.Association",
+     "target": "ZUI_RISKS_MITI_CLOUD_O4.Mitigations",
+     "cardinality": {
+      "max": 1
+     },
+     "keys": []
+    }
+   },
+   "@Common.Label": "Risks Interface view",
+   "@Capabilities.NavigationRestrictions.RestrictedProperties": [
+    {
+     "NavigationProperty": {
+      "=": "_Mitigation"
+     },
+     "InsertRestrictions": {
+      "Insertable": false
+     }
+    }
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true,
+   "@Capabilities.FilterRestrictions.FilterExpressionRestrictions": [
+    {
+     "Property": {
+      "=": "Uuid"
+     },
+     "AllowedExpressions": "MultiValue"
+    },
+    {
+     "Property": {
+      "=": "MitiUuid"
+     },
+     "AllowedExpressions": "MultiValue"
+    }
+   ]
+  }
+ }
+}
