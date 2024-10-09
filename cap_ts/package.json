@@ -13,14 +13,19 @@
   },
   "devDependencies": {
     "@cap-js/cds-typer": ">=0.1",
-    "@cap-js/cds-types": "^0.6",
+    "@cap-js/cds-types": "^0.6.5",
     "@cap-js/sqlite": "^1",
     "@types/node": "^20",
-    "typescript": "^5"
+    "typescript": "^5",
+    "cds-plugin-ui5": "^0.9.3"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch": "cds-ts w"
+    "watch": "cds-ts w",
+    "watch-cap-ts": "cds watch --open capts/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-hybrid-ts": "cds-ts watch --profile hybrid --open capts/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-hybrid": "cds watch --profile hybrid --open capts/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-cap-typeScript": "cds-ts watch --open capts/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
@@ -36,5 +41,11 @@
         }
       }
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/cap-ts"
+  ]
 }

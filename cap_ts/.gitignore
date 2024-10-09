@@ -4,7 +4,7 @@ _out
 *.sqlite
 connection.properties
 default-*.json
-.cdsrc-private.json
+# .cdsrc-private.json
 gen/
 node_modules/
 target/
@@ -31,4 +31,4 @@ mta_archives/
 # .idea
 
 # @cap-js/cds-typer
-@cds-models
+# @cds-models
