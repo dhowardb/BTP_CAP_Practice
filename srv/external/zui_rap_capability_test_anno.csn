@@ -1,6 +1,6 @@
 {
  "meta": {
-  "creator": "cds-dk 8.1.2"
+  "creator": "cds-dk 8.2.0"
  },
  "$version": "2.0",
  "definitions": {
@@ -154,6 +154,170 @@
     {
      "Property": {
       "=": "BooleanProperty"
+     },
+     "AllowedExpressions": "MultiValue"
+    }
+   ]
+  },
+  "zui_rap_capability_test_anno.Risks": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "Uuid": {
+     "key": true,
+     "type": "cds.String",
+     "length": 36,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 byte UUID in 36 chars according to RFC4122"
+    },
+    "Title": {
+     "type": "cds.String",
+     "length": 100,
+     "notNull": true,
+     "@Common.Label": "Char 100"
+    },
+    "Owner": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "Description": {
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true,
+     "@Common.Label": "String data type"
+    },
+    "MitiUuid": {
+     "type": "cds.String",
+     "length": 36,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "UUID",
+     "@Common.QuickInfo": "16 byte UUID in 36 chars according to RFC4122"
+    },
+    "Impact": {
+     "type": "cds.Integer",
+     "notNull": true,
+     "@Common.Label": "INT4",
+     "@Common.QuickInfo": "4 Byte Signed Integer"
+    }
+   },
+   "@Common.Label": "Risks Interface view",
+   "@UI.Facets": [
+    {
+     "$Type": "SAP__UI.ReferenceFacet",
+     "Label": "Mitigation Details",
+     "ID": "MitigationDetails",
+     "Target": "UI.FACET$1$",
+     "Target.@Core.Messages": [
+      {
+       "code": "SY-530",
+       "message": "An exception was raised",
+       "severity": "error"
+      }
+     ]
+    }
+   ],
+   "@UI.Identification": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Risks UUID",
+     "Value": {
+      "=": "Uuid"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Title",
+     "Value": {
+      "=": "Title"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Owner",
+     "Value": {
+      "=": "Owner"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Description",
+     "Value": {
+      "=": "Description"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Mitigation UUID",
+     "Value": {
+      "=": "MitiUuid"
+     }
+    }
+   ],
+   "@UI.LineItem": [
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Risks UUID",
+     "Value": {
+      "=": "Uuid"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Title",
+     "Value": {
+      "=": "Title"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Owner",
+     "Value": {
+      "=": "Owner"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Description",
+     "Value": {
+      "=": "Description"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Mitigation UUID",
+     "Value": {
+      "=": "MitiUuid"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
+     "Label": "Impact",
+     "Value": {
+      "=": "Impact"
+     }
+    }
+   ],
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true,
+   "@Capabilities.FilterRestrictions.FilterExpressionRestrictions": [
+    {
+     "Property": {
+      "=": "Uuid"
+     },
+     "AllowedExpressions": "MultiValue"
+    },
+    {
+     "Property": {
+      "=": "MitiUuid"
      },
      "AllowedExpressions": "MultiValue"
     }
@@ -394,6 +558,13 @@
      "@Common.Label": "Changed On",
      "@Common.QuickInfo": "Last Change Date Time"
     },
+    "isChildExists": {
+     "type": "cds.Boolean",
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Truth Value",
+     "@Common.QuickInfo": "Truth Value: True/False"
+    },
     "_Child": {
      "type": "cds.Composition",
      "target": "zui_rap_capability_test_anno.Child",
@@ -498,6 +669,13 @@
     },
     {
      "$Type": "SAP__UI.DataField",
+     "Label": "isChildExist",
+     "Value": {
+      "=": "isChildExists"
+     }
+    },
+    {
+     "$Type": "SAP__UI.DataField",
      "Label": "Child",
      "Value": {
       "=": "_Child/StringProperty"
@@ -527,8 +705,12 @@
      "AllowedExpressions": "SearchExpression"
     }
    ],
+   "@Capabilities.FilterRestrictions.NonFilterableProperties": [
+    "isChildExists"
+   ],
    "@Capabilities.SortRestrictions.NonSortableProperties": [
-    "DescriptionCustomGrowing"
+    "DescriptionCustomGrowing",
+    "isChildExists"
    ],
    "@Capabilities.InsertRestrictions.Insertable": false,
    "@Capabilities.DeleteRestrictions.Deletable": false,

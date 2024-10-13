@@ -56,4 +56,13 @@ service RootService {
             StreamFile,
             _Root
         }
+
+    entity Risks as
+        select from zui_rap_capability_test_anno.Risks {
+            Uuid,
+            Owner,
+            Description,
+            MitiUuid,
+            Impact
+        }
 }
